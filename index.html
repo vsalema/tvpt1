@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  
+
+    <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+
+    <meta name="apple-mobile-web-app-title" content="CodePen">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+    <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111" />
+
+
+
+  
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+
+
+  <title>CodePen - Untitled</title>
+
+    <link rel="canonical" href="https://codepen.io/vsalema/pen/eYwjEOw">
+  
+  
+  
+  
+<style>
+/*this player works with most of the browsers
+this player works in ios
+this player works with the main video streaming formats live dash hls mp4 youtube
+________________________________________________
+for all those who want to create a videojs player and do not have a javascript reference
+________________________________________________*/
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: #000000;
+}
+
+.video-js {
+  position: absolute;
+  top: 99px;
+
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -51px;
+  position: absolute;
+  }
+.ombres_multiples_diffuses {
+  box-shadow: inset 0 0 1em gold, 0 0 1em white;
+  /* deux ombres dans la liste et des rayons de flou pour chacune */
+}
+
+
+#hi {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -51px;
+  position: absolute;
+  height: 80%;
+}
+
+.WH {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 40%;
+  margin-left: -9%;
+}
+
+
+js-video-westmid
+
+
+<iframe class='ombres_multiples_diffuses content3 moveToVideoJs' id='js-video-westmid' src="https://vsalema.github.io/cmtv/" width="880" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen scrolling="no"></iframe>
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+</head>
+
+<body translate="no">
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>dash player</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style></style>
+<link href="https://unpkg.com/videojs-max-quality-selector@0.9.1/dist/videojs-max-quality-selector.css" rel="stylesheet">
+<link rel="stylesheet" href="https://ia904708.us.archive.org/25/items/tresmin_20230107_0910/tresmin.css" rel="stylesheet" type="text/css">
+<link href="https://cdn.jsdelivr.net/npm/videojs-logo@2.1.1/dist/videojs-logo.css" rel="stylesheet">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style>
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: 14px;
+  font-size: large;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #f3da35;
+  pointer-events: auto;
+}
+ 
+</style>
+<style>
+    html, body {
+  height: 10%;
+}
+  body {
+  font-family: sans-serif;
+  font-size: 16px;
+   margin: 0
+  }
+
+.player {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.content {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 5%;;
+  left: 1%;
+  width: 35%;
+  height: 35%;
+  }
+
+  .content2 {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 5%;;
+  left: 64%;
+  width: 35%;
+  height: 35%;
+  }
+  
+  .content3 {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 50%;;
+  left: 64%;
+  width: 35%;
+  height: 35%;
+  }
+  
+  .js-video-hidden {
+  z-index: -1;
+}
+.js-video-hidden {
+  z-index: -1;
+}
+#transition-toggle {
+  cursor: pointer;
+  }
+#transition-toggle:hover, 
+#transition-toggle:focus {
+  animation: pulse 1s;
+  box-shadow: 0 0 0 2em transparent;
+}
+
+@keyframes #transition-toggle {
+  0% { box-shadow: 0 0 0 0 var(--hover); }
+}
+.vjs-poster {
+  height: 109%;
+}
+.video-js .vjs-tech {
+  position: absolute;
+  top: -5%;
+  left: 0px;
+  width: 100%;
+  height: 109%;
+}
+.container{margin: auto; width:700px;}
+.vjs-brand-container-link{position:relative;top:14px;left:7px;}
+ .hero__headline__name {
+font-family: 'Courier New';
+color: white;
+font-size: 19px;
+text-shadow: 2px 2px DarkSlateGrey;
+	}
+.posi {
+position: absolute; margin-left: auto; margin-right: auto; left: 0px; right: 0;text-align: center; top: 6px; width:  visibility: visible;
+  }
+.posi2 {
+position: absolute;
+color: #fff;font-weight: bold;
+font-family: 'Courier New';
+font-size: 19px;
+color: white;
+text-shadow: 2px 2px DarkSlateGrey;
+left: 40%;
+top: 8px;
+  }
+
+.posi3 {
+  font-family: sans-serif;
+  font-size: 8px;
+  position: absolute;
+  top: -6px;
+  left: 13px;
+  color: white;
+}
+
+  </style>
+</head>
+<body translate="no">
+<script src=" https://cdn.jsdelivr.net/npm/videojs-hlsjs@1.4.8/dist/videojs-hlsjs.min.js "></script>
+<script src="https://unpkg.com/videojs-contrib-dash/dist/videojs-dash.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/videojs-logo@2.1.1/dist/videojs-logo.js"></script>
+<div class="box">
+	<div id="player" hidden></div>
+  <video class="ombres_multiples_diffuses playads js-video js-video video-js vjs-big-play-centered col-12" height="320" id="js-video-horsa" controls loop width="620" autoplay playsinline poster="https://www.themoviedb.org/t/p/w1066_and_h600_bestv2/7Yuf6j6N76SfqRWqT0I0ZUjICc2.jpg">
+<track label="Forced" kind="subtitles" srclang="en" src="https://archive.org/download/the-pale-blue-eye-s-5/ThePaleBlueEyeforced_s_4.vtt" default>
+<track label="French" kind="subtitles" srclang="de" src="https://archive.org/download/the-pale-blue-eye-s-5/ThePaleBlueEye_s_5.vtt">
+</video>
+
+<div class="posi moveToVideoJs"><div class="posi2  hero__headline__name "><img class="WH" src="https://png.pngtree.com/png-clipart/20240717/original/pngtree-the-coat-of-arms-portugal-featuring-a-shield-with-five-blue-png-image_15571179.png" /></div></div>
+
+<div class="moveToVideoJs">
+<video class='ombres_multiples_diffuses content moveToVideoJs js-video-hidden js-video js-video video-js vjs-big-play-centered vjs-default-skin small-player'  controls='' muted height='209' id='js-video-hengest' playsinline width='375'></video>
+</div>
+
+ 
+<div class="moveToVideoJs">
+<video class='ombres_multiples_diffuses content2 moveToVideoJs js-video-hidden js-video js-video video-js vjs-big-play-centered vjs-default-skin small-player'  controls='' muted  height='209' id='js-video-midwest' playsinline width='375'></video>
+</div>
+  
+  
+  <div class="moveToVideoJs">
+<iframe class='ombres_multiples_diffuses content3 moveToVideoJs js-video-hidden' id='js-video-westmid' src="https://vsalema.github.io/cmtv/" width="880" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen scrolling="no"></iframe>
+</div>
+  
+  <script src="https://play.shidur.net/node_modules/video.js/dist/video.js"></script>
+  
+ <button class="vjs-menu-button vjs-control vjs-button" hidden id="transition-toggle"></button>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/2.6.0/Youtube.min.j'></script>
+<script src="https://ia902201.us.archive.org/12/items/const_202405/const.j">
+</script>
+<script id="rendered-js">
+// Clears console from unwanted output.
+console.clear();
+
+// Player options on instantiation.
+const options = {
+  autoSetup: false,
+  preload: 'metadata',
+  autoplay: false,
+  loadingSpinner: true,
+  html5: {
+    nativeControlsForTouch: false,
+    nativeAudioTracks: false,
+    nativeVideoTracks: false,
+    hls: {
+      limitRenditionByPlayerDimensions: false,
+      smoothQualityChange: true,
+      hls: true,
+      bandwidth: 6194304,
+      overrideNative: true } } };
+
+
+
+
+// HLS Streams, one for each player.
+const stream_one = "https://raw.githubusercontent.com/ipstreet312/freeiptv/master/ressources/tvipt/sh/tvi.m3u8";
+const stream_two = "https://video-auth5.iol.pt/live_tvi_reality/live_tvi_reality/edge_servers/tvireality-720_passthrough/chunks.m3u8?sessionid=95472755";
+
+
+  const stream_trees = "https://d277k9d1h9dro4.cloudfront.net/out/v1/293e7c3464824cbd8818ab8e49dc5fe9/index_4.m3u8";
+  
+  const stream_four = '<iframe src="https://vsalema.github.io/cmtv/" width="880" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen scrolling="no"></iframe>';
+  
+  
+  // Instantiating two players.
+const horsa = videojs('#js-video-horsa', options);
+const hengest = videojs('#js-video-hengest', options);
+
+const midwest = videojs('#js-video-midwest', options);
+  
+  const westmid = videojs('#js-video-westmid', options);
+  // Assigning a stream to each one of them.
+horsa.src({ src: stream_one, type: 'application/x-mpegURL' });
+hengest.src({ src: stream_two, type: 'application/x-mpegURL' });
+
+midwest.src({ src: stream_trees, type: 'application/x-mpegURL' });
+  
+  
+  // Toggle both players visibility to apply a transition, revealing the hidden one and removing the current visible one from view.
+const applyTransition = () => {
+  // Gets all instances of players.
+  const allPlayers = videojs.getAllPlayers();
+
+  // For each player:
+  // 1. Reveals if hidden, hides if visible.
+  // 2. Plays if revealed, pauses if hidden.
+  allPlayers.map(player => {
+    player.el().classList.toggle('js-video-hidden');
+    const isHidden = player.el().classList.contains('js-video-hidden');
+
+    if (player.paused() && !isHidden) {
+      player.play();
+    } else {
+      player.pause();
+    }
+  });
+};
+var myPlayer = videojs('js-video-hengest');
+myPlayer.ready(function () {
+  console.log("downloadvideo");
+  });
+ var video = document.getElementById('js-video-horsa');
+		  var video = document.getElementById("player").innerHTML =
+			 horsa.on("pause", function () {
+				$('.hero__headline__name').fadeIn(1500);
+			});
+            horsa.on("play", function () {
+				$('.hero__headline__name').fadeOut(1500);
+				
+			});
+  
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/videojs-sprite-thumbnails@0.5.2/dist/videojs-sprite-thumbnails.js"></script>
+<script>
+    var player = videojs('js-video-horsa');
+    player.spriteThumbnails({
+    interval:1,
+    url: 'https://www.zupimages.net/up/22/43/xr0d.jpg',
+    vertical: "true",
+    start: 0,
+    duration: 8,
+    interval: 2.4,
+	  width: 120,
+    height: 67
+  });
+  </script>
+<script>
+ var button = document.getElementById("transition-toggle");
+
+myVideo = document.getElementById("js-video-hengest");
+myVideo = document.getElementById("js-video-midwest");
+var player = videojs('js-video-horsa');
+var fullscreen = player.controlBar.getChild("FullscreenToggle")
+var index = player.controlBar.children().indexOf(fullscreen)
+var button = player.controlBar.addChild("button", {}, index);
+var buttonDom = button.el();
+button.controlText('Bande annonce on off');
+buttonDom.innerHTML = '<span class="fa fa-television" id="transition-toggle"><p class="posi3" id="demoA">tvireal</p></span>';
+    function playPause() { 
+    if (myVideo.paused) {
+        myVideo.play();
+        button.innerHTML = "pause";
+        }
+    else  {
+        myVideo.pause(); 
+        button.innerHTML = "play";
+        }
+      }
+const transitionButton = document.querySelector('#transition-toggle');
+buttonDom.addEventListener('click', () => {
+  applyTransition();
+});
+  </script>
+ <script src="https://players.brightcove.net/videojs-quality-menu/1/videojs-quality-menu.min.js"></script>
+<script src="https://unpkg.com/videojs-max-quality-selector@0.9.1/dist/videojs-max-quality-selector.min.js"></script>
+<script>
+  
+  (function(window, videojs) {
+     var player = window.player = videojs('js-video-horsa');
+	  player.ready(function() {
+	  const muteButton = document.querySelector("");
+		  muteButton.click();
+			
+		  var promise = player.play();
+		  if (promise !== undefined) {
+			  promise.then(function() {
+				  const muteButton = document.querySelector("");
+				}).catch(function(error) {
+				});
+			} else {
+			}
+		  });
+player.maxQualitySelector({
+		  displayCurrentQuality: false,
+	  });
+	}(window, window.videojs));
+  
+  </script>
+<script src="https://doctoral-integer.000webhostapp.com/share.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/videojs-logo@2.1.1/dist/videojs-logo.js"></script>
+<script>
+    var player = videojs('js-video-horsa');
+    // initialize the plugin
+    var shareOptions = {
+      url: window.location.href,
+      
+    }
+    player.share(shareOptions);
+    (function(window, videojs) {
+      var examplePlayer = window.examplePlayer = videojs('js-video-horsa');
+      var logo = window.logo = examplePlayer.logo({
+        image: 'https://www.zupimages.net/up/23/34/o1ow.png',
+        url: '//yourdomaine.com/',
+        width: 120,
+        fadeDelay: null
+      });
+    }(window, window.videojs));
+  player.on('play', () => {
+  player.logo().hide();
+  player.on('pause', () => {
+  player.logo().show();
+});
+  });
+  </script>
+<script src="https://ia600700.us.archive.org/32/items/vjs-cs-play_202405/vjs-cs-play.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/videojs-seek-buttons/dist/videojs-seek-buttons.min.js"></script>
+<script>
+  var player = videojs('js-video-horsa');
+  player.seekButtons({
+    forward: 30,
+    back: 10
+  });
+</script>
+  <script>
+  
+var rainbow = instance => {
+  // (A) INIT + DEFAULT SETTINGS
+  if (!instance.colors) { instance.colors = ["fc0303", "45f52a", "2a7bf5", "2af5e4", "c92af5", "f5dd2a", "66655d"]; }
+  if (!instance.pause) { instance.pause = 1000; }
+  if (instance.transit !== false) { instance.target.style.transition = "color ease 0.5s"; }
+  instance.now = -1;
+ 
+  // (B) GO!
+  instance.timer = setInterval(() => {
+    instance.now++;
+    if (instance.now >= instance.colors.length) { instance.now = 0; }
+    instance.target.style.color = "#" + instance.colors[instance.now];
+  }, instance.pause);
+};
+ 
+// (C) ATTACH RAINBOW EFFECT ON PAGE LOAD
+window.addEventListener("load", () => {
+  // (C1) SIMPLE - JUST SPECIFY TARGET
+  rainbow({
+    target : document.getElementById("demoA")
+  });
+ 
+  // (C2) RAINBOW TEXT WITH OPTIONS
+  rainbow({
+    target : document.getElementById("demoB"),
+    colors : ["f00", "0f0", "00f"],
+    pause : 2000,
+    transit : false
+  });
+});
+  
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+ </body>
+</html>
+  
+      <script id="rendered-js" >
+var player = videojs('js-video-horsa');
+player.maxQualitySelector({
+  'defaultQuality': 2 // Make the video start playing at the highest quality possible
+});
+
+$(document).ready(function () {
+  var videotag = $('.playads');
+  var myPlayer = videojs('js-video-hengest');
+  var myPlayer = videojs('js-video-midwest');
+  var myPlayer = videojs('js-video-westmid');
+  $(".moveToVideoJs").appendTo($('#js-video-horsa'));
+  // show advertisement label while play advertisement
+  myPlayer.on('play', function () {
+    if (myPlayer.hasClass("playads")) {
+      $('.advertisement').removeClass('hide');
+      $('.playads').addClass('#hi');
+    }
+  });
+  // Stop from seeking while playing advertisement
+  myPlayer.on("seeking", function (event) {
+    if (currentTime < myPlayer.currentTime() && myPlayer.hasClass("playads")) {
+      myPlayer.currentTime(currentTime);
+    }
+  });
+  myPlayer.on("seeked", function (event) {
+    if (currentTime < myPlayer.currentTime() && myPlayer.hasClass("playads")) {
+      myPlayer.currentTime(currentTime);
+    }
+  });
+  setInterval(function () {
+    if (!myPlayer.paused() && myPlayer.hasClass("playads")) {
+      currentTime = myPlayer.currentTime();
+    }
+  }, 1000);
+
+  // Hide Advertisement label and change data-src of player to play actual video
+  myPlayer.on('ended', function () {
+    if (this.hasClass("playads")) {
+      this.src({ type: videotag.attr('mimetype'), src: videotag.attr('video-url') });
+      this.play();
+      this.removeClass('playads');
+      $('.advertisement').addClass('hide');
+      $('.advertisement').addClass('#hi');
+    }
+  });
+});
+//# sourceURL=pen.js
+    </script>
+
+  
+</body>
+
+</html>
